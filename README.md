@@ -1,14 +1,14 @@
 # LeetCode Solutions
 
 Welcome to my LeetCode solution repository! 
-This repo serves as a log to track the progress of my problem solving journey. I aim to practice and post my results every day to improve my algorithmic thinking and coding fluency.
+This repo serves as a log to track the progress of my problem solving journey. I aim to practice and post my results every week to improve my algorithmic thinking and coding fluency.
 
 ---
 
-## Daily Progress 
+## Progress 
 
-- Current Streak: `1` day
-- Total Problems Solved: `1`
+- Weeks completed: `2` Weeks
+- Total Problems Solved: `2`
 
 ## Repository Structure
 
@@ -20,6 +20,6 @@ This repo serves as a log to track the progress of my problem solving journey. I
 
 ## Goals
 
-- Stay consistent with daily practice
+- Stay consistent with weekly practice
 - Write clean, readable, well-commented code
 - Optimize solutions for time and space complexity
