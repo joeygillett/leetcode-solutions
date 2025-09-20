@@ -9,7 +9,7 @@ class Solution {
 public:
 
     vector<int> replaceNonCoprimes(vector<int>& nums) {
-        vector<int> v; // Vector v functions as a stack holding the current array
+        vector<int> v; //Vector v functions as a stack holding the current array
         int current;
         for(int num : nums) {
             current = num;
