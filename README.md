@@ -7,8 +7,8 @@ This repo serves as a log to track the progress of my problem solving journey. I
 
 ## Progress 
 
-- Weeks completed: `2` Weeks
-- Total Problems Solved: `3`
+- Weeks completed: `3` Weeks
+- Total Problems Solved: `4`
 
 ## Repository Structure
 
