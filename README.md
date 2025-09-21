@@ -1,6 +1,6 @@
 # LeetCode Solutions
 
-Welcome to my LeetCode solution repository! 
+Welcome to my LeetCode solution repository!
 This repo serves as a log to track the progress of my problem solving journey. I aim to practice and post my results every week to improve my algorithmic thinking and coding fluency.
 
 ---
