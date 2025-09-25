@@ -9,7 +9,7 @@ class Solution {
 public:
     int minimumTotal(vector<vector<int>>& triangle) {
         int h = triangle.size();
-        //Edit the values in place from the penultimate row up adding the minimum below
+        //Edit the values in place from the second-to-last row up, adding the minimum value from the two numbers below
         for(int i = h - 2; i >= 0; --i) {
             int w = triangle[i].size();
             for(int j = 0; j < w; ++j) {
