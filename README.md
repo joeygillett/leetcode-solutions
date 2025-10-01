@@ -7,8 +7,8 @@ This repo serves as a log to track the progress of my problem solving journey. I
 
 ## Progress 
 
-- Daily Streak: `4`
-- Total Problems Solved: `11`
+- Daily Streak: `2`
+- Total Problems Solved: `12`
 
 ## Repository Structure
 
