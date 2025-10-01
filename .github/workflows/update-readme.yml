@@ -31,7 +31,7 @@ jobs:
           echo "Found $FILE_COUNT files inside daily-problems"
 
           # Variables for streak calculation
-          STREAK_FILE=".streak_data"
+          STREAK_FILE="data/.streak_data"
           TODAY=$(date -u +%F)
           LAST_PUSH_DATE=""
           CURRENT_STREAK=0
