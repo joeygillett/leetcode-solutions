@@ -9,7 +9,7 @@ class Solution {
 public:
     vector<int> sumZero(int n) {
         vector<int> v;
-        // Include 0 if n is odd to balance sum
+        //Include 0 if n is odd to balance sum
         if(n % 2 == 1) {
             v.push_back(0);
         }
