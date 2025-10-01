@@ -1,0 +1,86 @@
+name: Update README Problem Count and Streak
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'daily-problems/**'
+
+jobs:
+  update-readme:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set Git user info
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Update stats (file count + daily streak)
+        run: |
+          # Count files inside daily-problems folder
+          FILE_COUNT=$(find ./daily-problems -type f \
+            ! -name "README.md" \
+            ! -name ".gitignore" \
+            | wc -l)
+
+          echo "Found $FILE_COUNT files inside daily-problems"
+
+          # Variables for streak calculation
+          STREAK_FILE=".streak_data"
+          TODAY=$(date -u +%F)
+          LAST_PUSH_DATE=""
+          CURRENT_STREAK=0
+
+          if [ -f "$STREAK_FILE" ]; then
+            source "$STREAK_FILE"
+          fi
+
+          echo "Last push date: $LAST_PUSH_DATE"
+          echo "Current streak: $CURRENT_STREAK"
+          echo "Today's date: $TODAY"
+
+          # Calculate difference between last push date and today in epoch
+          date_to_epoch() {
+            date -d "$1" +%s
+          }
+
+          if [ -n "$LAST_PUSH_DATE" ]; then
+            LAST_EPOCH=$(date_to_epoch "$LAST_PUSH_DATE")
+            TODAY_EPOCH=$(date_to_epoch "$TODAY")
+            DIFF_SEC=$(( TODAY_EPOCH - LAST_EPOCH ))
+            DIFF_DAYS=$(( DIFF_SEC / 86400 ))
+          else
+            DIFF_DAYS=0
+          fi
+
+          # Update streak based on difference
+          if [ "$DIFF_DAYS" -eq 1 ]; then
+            CURRENT_STREAK=$((CURRENT_STREAK + 1))
+          elif [ "$DIFF_DAYS" -eq 0 ]; then
+            CURRENT_STREAK=$CURRENT_STREAK
+          else
+            CURRENT_STREAK=1
+          fi
+
+          echo "Updated streak: $CURRENT_STREAK"
+
+          echo "last_push_date=$TODAY" > $STREAK_FILE
+          echo "current_streak=$CURRENT_STREAK" >> $STREAK_FILE
+
+          # Update README with file count and streak
+          sed -i "s/^- Total Problems Solved: .*/- Total Problems Solved: \`$FILE_COUNT\`/" README.md
+          sed -i "s/^- Daily Streak: .*/- Daily Streak: \`$CURRENT_STREAK\`/" README.md
+
+          # Commit changes if any
+          if git diff --quiet; then
+            echo "No changes to README, skipping commit."
+          else
+            git add README.md "$STREAK_FILE"
+            git commit -m "docs: update problem count in README [auto]"
+            git push
+          fi
