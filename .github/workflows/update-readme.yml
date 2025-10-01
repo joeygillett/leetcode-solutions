@@ -82,5 +82,5 @@ jobs:
           else
             git add README.md "$STREAK_FILE"
             git commit -m "docs: update problem count in README [auto]"
-            git push
+            git push https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/${{ github.repository }} HEAD:main
           fi
