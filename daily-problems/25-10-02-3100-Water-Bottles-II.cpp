@@ -1,9 +1,8 @@
 /*
 Problem: Water Bottles II (LeetCode #3100)
-Find the maximum amount of water bottles that can be drunk.
-Drinking a full water bottle turns it into an empty bottle.
-numExchange number of empty bottles can be exchanged for one full water bottle.
-numExchange is increased by one every time bottles are exchanged.
+Find the maximum amount of water bottles that can be drunk. Drinking a full water bottle
+turns it into an empty bottle. numExchange number of empty bottles can be exchanged for
+one full water bottle. numExchange is increased by one every time bottles are exchanged.
 Performance:
 - Runtime: 0 ms (Beats 100.00%)
 - Memory: 8.42 MB (Beats 79.30%)
