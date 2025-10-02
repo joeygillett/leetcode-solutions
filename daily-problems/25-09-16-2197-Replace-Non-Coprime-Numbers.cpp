@@ -1,6 +1,6 @@
 /*
 Problem: Replace Non-Coprime Numbers in Array (LeetCode #2197)
-Given an array of integers replace every pair of adjacent non-coprime integers with their lcm.
+Given an array of integers replace every pair of adjacent non-coprime integers with their least common multiple.
 Performance: 
 - Runtime: 20 ms (Beats 58.80%)
 - Memory: 125.29 MB (Beats 44.44%)
